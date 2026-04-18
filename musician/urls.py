@@ -1,19 +1,24 @@
 from django.urls import path
-from . import views
+from musician.views import (
+    MusicianListCreateView,
+    MusicianDetailView,
+    musician_list,
+    musician_detail
+)
 
 urlpatterns = [
     # Class-based views (DRF)
-    path("", views.MusicianListCreateView.as_view(), name="manage-list"),
+    path("", MusicianListCreateView.as_view(), name="manage-list"),
     path(
-        "musicians/<int:pk>/", views.MusicianDetailView.as_view(),
+        "musicians/<int:pk>/", MusicianDetailView.as_view(),
         name="manage-detail"
     ),
     # Function-based views (alternative)
     path(
-        "musicians-fbv/", views.musician_list, name="musician-list-fbv"
+        "musicians-fbv/", musician_list, name="musician-list-fbv"
     ),
     path(
-        "musicians-fbv/<int:pk>/", views.musician_detail,
+        "musicians-fbv/<int:pk>/", musician_detail,
         name="musician-detail-fbv"
     ),
 ]

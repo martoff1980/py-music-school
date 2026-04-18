@@ -10,7 +10,7 @@ urlpatterns = [
     # Class-based views (DRF)
     path("", MusicianListCreateView.as_view(), name="manage-list"),
     path(
-        "musicians/<int:pk>/", MusicianDetailView.as_view(),
+        "<int:pk>/", MusicianDetailView.as_view(),
         name="manage-detail"
     ),
     # Function-based views (alternative)
